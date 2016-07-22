@@ -6,7 +6,14 @@ $(document).ready(function(){
 		$('.cat').on('click', function() {
 			$('.category').hide();
 			$('body').html('<form>Im a form</form>');
-		})
-	})
-})
+				
+				$.ajax({
+					url: '/searches',
+    			type: 'POST'
+				}).done(function(response) {
+					console.log(JSON.stringify(response));
+				});
+		});
+	});
+});
 
