@@ -1,19 +1,27 @@
 $(document).ready(function(){
 	$('button').on('click', function() {
 		$('.main_container').hide();
-		$('body').html("<div class='category'><h1>Categories</h1><ul><li><button class='cat'>Computer</button></li></ul></div>");
+		$('body').html("<div class='category'><h1>Categories</h1><ul><li><button class='phones'>Phones</button></li></ul></div>");
 
-		$('.cat').on('click', function() {
+		$('.phones').on('click', function() {
 			$('.category').hide();
-			$('body').html('<form>Im a form</form>');
-				
+			$('body').html("<button class='iphone'>Iphone</button></br></br><button class='samsung'>Samsungs</button>");
+
+			$('.iphone').on('click', function() {
+				$('.samsung').hide();
+				$('.iphone').hide();
+
 				$.ajax({
-					url: '/searches',
-    			type: 'POST'
+					url: '/semantics',
+					type: 'POST',
+					data: 'iphone'
 				}).done(function(response) {
-					console.log(JSON.stringify(response));
+					var phoneForm = new Phone(response);
+					$('body').html("<form id='phone-form' action='/semantics' method='post'>Max Price:<br><input type='number' name='maximum price' min='1' max='1000'><br>Max Weight:<br><input type='number' name='maximum weight' min='1' max='1000'><br>"+phoneForm.colorSelection()+"<input type='submit' value='Submit'></form>");
 				});
+
+			})
+
 		});
 	});
 });
-
