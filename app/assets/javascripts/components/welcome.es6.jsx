@@ -1,4 +1,5 @@
 class Welcome extends React.Component {
+  
   render () {
     return (
       <div class='main_container'>
