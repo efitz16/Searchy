@@ -21,10 +21,10 @@ class SemanticsController < ApplicationController
   		index += 1
   		hash["key"] = index.to_s
   		hash["name"] = item["name"]
-  		hash["price"] = item["price"].to_f
+  		hash["price"] = item["price"].to_i
   		hash["model"] = item["model"]
   		hash["color"] = item["color"]
-  		hash["weight"] = item["weight"].to_f
+  		hash["weight"] = item["weight"].to_i
 
   		semantics_results << hash
   	end
