@@ -5,7 +5,7 @@ var Phone = function(data){
 Phone.prototype.getColors = function(){
   var colors = [];
   for(var i = 0; i < this.data.length; i++){
-    colors.push(this.data[i]["color"]);
+    colors.push(this.data[i]["values"]["color"]);
   }
   return colors;
 }
@@ -35,10 +35,10 @@ Phone.prototype.createRequest = function(){
       "type": "NUMERIC",
       "goal": "min",
       "is_objective": true,
-      "full_name": "price",
+      "full_name": "Price",
       "range": {
         "low": 0,
-        "high": 0,
+        "high": 1000,
       },
       "format": "number:2"
     },
@@ -58,7 +58,7 @@ Phone.prototype.createRequest = function(){
       "goal": "min",
       "range": {
         "low": 0,
-        "high": 0,
+        "high": 1000,
       },
       "is_objective": true
     }],

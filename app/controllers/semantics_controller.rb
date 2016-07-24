@@ -1,7 +1,7 @@
 class SemanticsController < ApplicationController
-  SEM_API_KEY = ENV['SEM_API_KEY']
+  SEM_API_KEY = ''
 
-  SEM_SECRET = ENV['SEM_SECRET']
+  SEM_SECRET = ''
 
   def create
 
@@ -16,20 +16,24 @@ class SemanticsController < ApplicationController
 
     semantics_results = []
 
+
     productsHash["results"].each_with_index do |item, index|
       hash = {}
       index += 1
       hash["key"] = index.to_s
       hash["name"] = item["name"]
-      hash["price"] = item["price"].to_i
-      hash["model"] = item["model"]
-      hash["color"] = item["color"]
-      hash["weight"] = item["weight"].to_i
+      hash["values"] = {}
+      hash["values"]["price"] = item["price"].to_i
+      hash["values"]["model"] = item["model"]
+      hash["values"]["color"] = item["color"]
+      hash["values"]["weight"] = item["weight"].to_i/1000
+
 
       semantics_results << hash
     end
 
     semantics_results = semantics_results.to_json
+
 
     render :json => semantics_results
 
