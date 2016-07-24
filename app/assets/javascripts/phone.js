@@ -32,7 +32,7 @@ Phone.prototype.createRequest = function(){
     "subject": "phones",
     "columns": [{
       "key": "price",
-      "type": "numeric",
+      "type": "NUMERIC",
       "goal": "min",
       "is_objective": true,
       "full_name": "price",
@@ -52,7 +52,7 @@ Phone.prototype.createRequest = function(){
       "is_objective": true
     },
     {
-      "type": "numeric",
+      "type": "NUMERIC",
       "key": "weight",
       "full_name": "Weight",
       "goal": "min",
@@ -71,9 +71,9 @@ Phone.prototype.updatedRequest = function(data){
 
   var request = this.createRequest();
 
-  request["columns"][0]["range"]["high"] = data[0].value;
+  request["columns"][0]["range"]["high"] = parseInt(data[0].value);
   request["columns"][1]["preference"].push(data[2].value);
-  request["columns"][2]["range"]["high"] = data[1].value;
+  request["columns"][2]["range"]["high"] = parseInt(data[1].value);
 
 
   return request;
