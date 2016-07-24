@@ -14,9 +14,9 @@ Phone.prototype.colorSelection = function(){
   var colors = this.getColors();
   var option = "";
   for(var i = 0; i < colors.length; i++){
-    buttons = buttons + "<option value='" +colors[i]+ "'" + ">"+colors[i]+ "</option>";
+    option = option + "<option value='" +colors[i]+ "'" + ">"+colors[i]+ "</option>";
   }
-  var selector = "<select name='colors' form='phone-form'>" +option+ "</select";
+  var selector = "<select name='colors' form='phone-form'>" +option+ "</select>";
   return selector;
 
 }
@@ -25,18 +25,20 @@ Phone.prototype.createRequest = function(){
 
   var colors = this.getColors();
 
+
+
   var request = {
 
-    "subject" => "phones",
+    "subject": "phones",
     "columns": [{
       "key": "price",
       "type": "numeric",
       "goal": "min",
-      "is_objective": false,
+      "is_objective": true,
       "full_name": "price",
       "range": {
         "low": 0,
-        "high" 0,
+        "high": 0,
       },
       "format": "number:2"
     },
@@ -46,8 +48,8 @@ Phone.prototype.createRequest = function(){
       "full_name": "Color",
       "range": colors,
       "goal": "min",
-      "preference": [];
-      "is_objective": false
+      "preference": [],
+      "is_objective": true
     },
     {
       "type": "numeric",
@@ -56,20 +58,24 @@ Phone.prototype.createRequest = function(){
       "goal": "min",
       "range": {
         "low": 0,
-        "high" 0,
+        "high": 0,
       },
-      "is_objective": false
+      "is_objective": true
     }],
-    "options": this.data;
+    "options": this.data
   };
   return request;
 }
 
-Phone.prototype.updatedRequest = function(){
+Phone.prototype.updatedRequest = function(data){
 
   var request = this.createRequest();
 
-  request["columns"][]
+  request["columns"][0]["range"]["high"] = data[0].value;
+  request["columns"][1]["preference"].push(data[2].value);
+  request["columns"][2]["range"]["high"] = data[1].value;
 
+
+  return request;
 
 }
