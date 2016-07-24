@@ -1,7 +1,7 @@
 class SemanticsController < ApplicationController
-  SEM_API_KEY = ''
+  SEM_API_KEY = ENV['SEM_API_KEY']
 
-  SEM_SECRET = ''
+  SEM_SECRET = ENV['SEM_SECRET']
 
   def create
 
