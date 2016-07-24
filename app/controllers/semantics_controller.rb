@@ -1,9 +1,12 @@
 class SemanticsController < ApplicationController
-  SEM_API_KEY = ENV['SEMANTICS_API_KEY']
+  SEM_API_KEY = ''
 
   SEM_SECRET = ''
 
   def create
+
+    # binding.pry
+    params[:category] = 'iphone'
 
   	sem3 = Semantics3::Products.new(SEM_API_KEY, SEM_SECRET)
 
@@ -25,6 +28,10 @@ class SemanticsController < ApplicationController
 
   		semantics_results << hash
   	end
+
+    semantics_results = semantics_results.to_json
+
+    render :json => semantics_results
 
   end
 
