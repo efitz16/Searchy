@@ -1,7 +1,7 @@
 class SemanticsController < ApplicationController
-  SEM_API_KEY = ''
+  SEM_API_KEY = 'SEM33C6880ADCC8CAF0FAD3D45F2BBE7037B'
 
-  SEM_SECRET = ''
+  SEM_SECRET = 'MTRkNTE4NTczMjkwYmRjZTVhZDAwZTU3MmJkMDZjZDk'
 
   def create
 
