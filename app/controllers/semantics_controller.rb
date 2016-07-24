@@ -8,26 +8,26 @@ class SemanticsController < ApplicationController
     # binding.pry
     params[:category] = 'iphone'
 
-  	sem3 = Semantics3::Products.new(SEM_API_KEY, SEM_SECRET)
+    sem3 = Semantics3::Products.new(SEM_API_KEY, SEM_SECRET)
 
-  	sem3.products_field( "search", params[:category] )
+    sem3.products_field( "search", params[:category] )
 
-  	productsHash = sem3.get_products()
+    productsHash = sem3.get_products()
 
-  	semantics_results = []
+    semantics_results = []
 
-  	productsHash["results"].each_with_index do |item, index|
-  		hash = {}
-  		index += 1
-  		hash["key"] = index.to_s
-  		hash["name"] = item["name"]
-  		hash["price"] = item["price"].to_i
-  		hash["model"] = item["model"]
-  		hash["color"] = item["color"]
-  		hash["weight"] = item["weight"].to_i
+    productsHash["results"].each_with_index do |item, index|
+      hash = {}
+      index += 1
+      hash["key"] = index.to_s
+      hash["name"] = item["name"]
+      hash["price"] = item["price"].to_i
+      hash["model"] = item["model"]
+      hash["color"] = item["color"]
+      hash["weight"] = item["weight"].to_i
 
-  		semantics_results << hash
-  	end
+      semantics_results << hash
+    end
 
     semantics_results = semantics_results.to_json
 
