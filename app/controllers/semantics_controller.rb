@@ -3,39 +3,62 @@ class SemanticsController < ApplicationController
 
   SEM_SECRET = ''
 
-  def create
+  # def create
 
-    # binding.pry
-    params[:category] = 'iphone'
+  #   # binding.pry
+  #   params[:category] = 'iphone'
 
-    sem3 = Semantics3::Products.new(SEM_API_KEY, SEM_SECRET)
+  #   sem3 = Semantics3::Products.new(SEM_API_KEY, SEM_SECRET)
 
-    sem3.products_field( "search", params[:category] )
+  #   sem3.products_field( "search", params[:category] )
 
-    productsHash = sem3.get_products()
+  #   productsHash = sem3.get_products()
 
-    semantics_results = []
-
-
-    productsHash["results"].each_with_index do |item, index|
-      hash = {}
-      index += 1
-      hash["key"] = index.to_s
-      hash["name"] = item["name"]
-      hash["values"] = {}
-      hash["values"]["price"] = item["price"].to_i
-      hash["values"]["model"] = item["model"]
-      hash["values"]["color"] = item["color"]
-      hash["values"]["weight"] = item["weight"].to_i/1000
+  #   semantics_results = []
 
 
-      semantics_results << hash
+  #   productsHash["results"].each_with_index do |item, index|
+  #     hash = {}
+  #     index += 1
+  #     hash["key"] = index.to_s
+  #     hash["name"] = item["name"]
+  #     hash["values"] = {}
+  #     hash["values"]["price"] = item["price"].to_i
+  #     hash["values"]["model"] = item["model"]
+  #     hash["values"]["color"] = item["color"]
+  #     hash["values"]["weight"] = item["weight"].to_i/1000
+
+
+  #     semantics_results << hash
+  #   end
+
+  #   semantics_results = semantics_results.to_json
+
+
+  #   render :json => semantics_results
+
+  # end
+
+
+  def index
+    case params[:category]
+    when "computers"
+      computers = []
+      #send back as json objects
+      Computer.all.each do |c|
+        computers << c.as_json
+      end
+
+    when "phones"
+      phones_form
+    when "accessories"
+      accessories_form
+    when "clothing"
+      clothing_form
     end
 
-    semantics_results = semantics_results.to_json
+    binding.pry
 
-
-    render :json => semantics_results
 
   end
 
