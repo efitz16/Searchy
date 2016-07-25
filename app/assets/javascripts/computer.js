@@ -94,7 +94,7 @@ Computer.prototype.getScreSi = function(){
 	
 } //bat life and ram
 
-Computer.prototype.CreateRequest = function(){
+Computer.prototype.createRequest = function(){
 	
 	var request = {
 		"subject": "phones",
@@ -186,3 +186,18 @@ Computer.prototype.CreateRequest = function(){
 
 	return request;
 } 
+
+Computer.prototype.updatedRequest = function(data){
+
+  var request = this.createRequest();
+
+  request["columns"][0]["range"]["high"] = parseInt(data[0].value);
+  request["columns"][2]["preference"].push(data[2].value);
+  request["columns"][1]["range"]["high"] = parseInt(data[1].value);
+
+  return request;
+}
+
+
+
+
