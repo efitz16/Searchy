@@ -10,10 +10,27 @@ $(document).ready(function(){
 				$.ajax({
 					url: '/semantics?category=' + category,
 					type: 'GET'
-				}).done(function(response));
-			})
+				}).done(function(response) {
+					var prodForm;
+					switch(response[0]["type"]) {
+						case "computers":
+							prodForm = new Computer(response);
+
+							$('body').html("<form id='computer-form' action='/semantics' method='post'>Max Price:<br><input type='number' name='maximum price' min='1' max='1000'><br>Max Weight:<br><input type='number' name='maximum weight' min='1' max='1000'><br>"+prodForm.kindSelection()+"<input type='submit' value='Submit'></form>");
+							break;
+						case "phones":
+							prodForm = new Phone(response);
+							break;
+						case "clothes":
+							prodForm = new Clothing(response);
+							break;
+						case "accessories":
+							prodForm = new Accessory(response);
+					}
+					});
+				});
+			});
 		});
-	});
 
 
 // .done(function(response) {
