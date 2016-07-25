@@ -43,12 +43,12 @@ class SemanticsController < ApplicationController
   def index
     case params[:category]
     when "computers"
-      computers = []
+      computers = ["type": "computers"]
       #send back as json objects
       Computer.all.each do |c|
         computers << c.as_json
       end
-
+      render json:computers
     when "phones"
       phones_form
     when "accessories"
@@ -57,7 +57,7 @@ class SemanticsController < ApplicationController
       clothing_form
     end
 
-    binding.pry
+    # binding.pry
 
 
   end

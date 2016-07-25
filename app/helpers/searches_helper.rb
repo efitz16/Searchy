@@ -1,6 +1,6 @@
 module SearchesHelper
 	def computers_form
-
+		
 
 	end
 	def phones_form
