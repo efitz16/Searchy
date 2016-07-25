@@ -50,7 +50,12 @@ class SemanticsController < ApplicationController
       end
       render json:computers
     when "phones"
-      phones_form
+      phones = ["type": "phones"]
+      #send back as json objects
+      Phone.all.each do |p|
+        phones << p.as_json
+      end
+      render json:phones
     when "accessories"
       accessories_form
     when "clothing"

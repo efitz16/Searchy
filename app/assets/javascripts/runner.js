@@ -20,6 +20,8 @@ $(document).ready(function(){
 							break;
 						case "phones":
 							prodForm = new Phone(response);
+
+							$('body').html("<form id='phone-form' class='choice-form' action='/semantics' method='post'>Max Price:<br><input type='number' name='maximum price' min='1' max='1000'><br>Max Weight:<br><input type='number' name='maximum weight' min='1' max='1000'><br><input type='submit' value='Submit'></form>");
 							break;
 						case "clothes":
 							prodForm = new Clothing(response);
