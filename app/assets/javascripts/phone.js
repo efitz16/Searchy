@@ -25,8 +25,6 @@ Phone.prototype.createRequest = function(){
 
   var colors = this.getColors();
 
-
-
   var request = {
 
     "subject": "phones",
