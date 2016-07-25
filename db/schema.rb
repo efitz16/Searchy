@@ -10,9 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160725000231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accessories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "brand"
+    t.string   "kind"
+    t.string   "url"
+    t.string   "gender"
+    t.decimal  "price",      precision: 15, scale: 2, default: "0.0"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+  end
+
+  create_table "clothings", force: :cascade do |t|
+    t.string   "kind"
+    t.string   "gender"
+    t.string   "name"
+    t.decimal  "price",      precision: 15, scale: 2, default: "0.0"
+    t.string   "url"
+    t.string   "color"
+    t.string   "brand"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+  end
+
+  create_table "computers", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price",            precision: 15, scale: 2, default: "0.0"
+    t.string   "kind"
+    t.string   "url"
+    t.decimal  "weight",           precision: 15, scale: 2, default: "0.0"
+    t.string   "brand"
+    t.string   "operating_system"
+    t.integer  "screen_size"
+    t.integer  "RAM"
+    t.decimal  "battery_life",     precision: 15, scale: 2, default: "0.0"
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.decimal  "price",      precision: 15, scale: 2, default: "0.0"
+    t.decimal  "weight",     precision: 15, scale: 2, default: "0.0"
+    t.string   "brand"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+  end
 
 end
