@@ -40,7 +40,6 @@ Computer.prototype.buildOptions = function(){
 		hash["values"]["kind"] = this.data[i]["kind"];
 		hash["values"]["brand"] = this.data[i]["brand"];
 		hash["values"]["weight"] = parseInt(this.data[i]["weight"]);
-		hash["values"]["brand"] = this.data[i]["brand"];
 		hash["values"]["operating_system"] = this.data[i]["operating_system"];
 		hash["values"]["screen_size"] = parseInt(this.data[i]["screen_size"]);
 		hash["values"]["RAM"] = parseInt(this.data[i]["RAM"]);
