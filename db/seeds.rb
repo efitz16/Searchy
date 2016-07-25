@@ -45,3 +45,8 @@ Accessory.create(name: "Gucci Unisex YA133312 Interlocking GRAMMY Special Editio
 Accessory.create(name: "Sterling Silver Multicolor Pressed Flower Heart Pendant Necklace", brand: "Amazon Collection", kind: "jewelry", url: "https://www.amazon.com/gp/product/B00M0NZJ2E/ref=s9_acsd_aas_bw_c_x_5?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-3&pf_rd_r=VGCF90XEXY986ZSDATZ5&pf_rd_t=101&pf_rd_p=2490278262&pf_rd_i=13577867011", gender: "female", price: 23.57)
 
 Accessory.create(name: "Allen Edmonds Men's Basic 35 mm Dress Belt", brand: "Allen Edmonds", kind: "belt", url: "https://www.amazon.com/Allen-Edmonds-Basic-Dress-Suede/dp/B00JVSXJH8/ref=sr_1_5?s=apparel&ie=UTF8&qid=1469405520&sr=1-5&nodeID=2474947011", gender: "male", price: 98.00)
+
+
+# rake db:drop
+# response
+

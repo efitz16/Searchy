@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725000231) do
+ActiveRecord::Schema.define(version: 20160725161529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20160725000231) do
     t.decimal  "price",      precision: 15, scale: 2, default: "0.0"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
+  end
+
+  create_table "cameras", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.integer  "optical_zoom"
+    t.integer  "weight"
+    t.string   "image_url"
+    t.decimal  "average_rating"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "clothings", force: :cascade do |t|
@@ -53,6 +64,21 @@ ActiveRecord::Schema.define(version: 20160725000231) do
     t.datetime "updated_at",                                                null: false
   end
 
+  create_table "laptops", force: :cascade do |t|
+    t.string   "name"
+    t.string   "brand"
+    t.decimal  "price"
+    t.integer  "flash_memory_size"
+    t.integer  "screen_size"
+    t.integer  "RAM"
+    t.string   "max_screen_resolution"
+    t.string   "operating_system"
+    t.string   "image_url"
+    t.decimal  "average_rating"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "phones", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
@@ -61,6 +87,18 @@ ActiveRecord::Schema.define(version: 20160725000231) do
     t.string   "brand"
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
+  end
+
+  create_table "televisions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "display_technology"
+    t.string   "resolution"
+    t.decimal  "display_size"
+    t.decimal  "price"
+    t.decimal  "weight"
+    t.decimal  "average_rating"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
 end
