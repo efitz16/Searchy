@@ -96,7 +96,7 @@ Computer.prototype.getScreSi = function(){
 Computer.prototype.createRequest = function(){
 	
 	var request = {
-		"subject": "phones",
+		"subject": "computer",
     "columns": [{
       "key": "price",
       "type": "NUMERIC",

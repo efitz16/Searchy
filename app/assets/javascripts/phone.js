@@ -157,7 +157,7 @@ Phone.prototype.createRequest = function(){
       "range": this.getBrands(),
       "goal": "min",
       "preference": [],
-      "is_objective": true
+      "is_objective": false
     }], 
     "options": this.buildOptions()
   };
