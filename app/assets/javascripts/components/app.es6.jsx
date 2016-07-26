@@ -1,14 +1,21 @@
-class App extends React.Component {
-  constructor(){
-    super();
-  }
+// class App extends React.Component {
+//   constructor(){
+//     super();
 
-  render(){
+//   }
 
-    return (
+//   // buttonOnClick(){
+//   //   this.setState({
+//   //     showComponent : true,
+//   //   });
+//   // }
 
-      <Welcome />
+//   render(){
 
-    );
-  }
-}
+//     return (
+
+//       <Welcome  />
+
+//     );
+//   }
+// }
