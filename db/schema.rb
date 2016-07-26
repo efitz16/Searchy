@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160725161529) do
     t.string   "name"
     t.decimal  "price"
     t.integer  "optical_zoom"
-    t.integer  "weight"
+    t.integer  "item_weight"
     t.string   "image_url"
     t.decimal  "average_rating"
     t.datetime "created_at",     null: false
@@ -66,11 +66,10 @@ ActiveRecord::Schema.define(version: 20160725161529) do
 
   create_table "laptops", force: :cascade do |t|
     t.string   "name"
-    t.string   "brand"
     t.decimal  "price"
     t.integer  "flash_memory_size"
     t.integer  "screen_size"
-    t.integer  "RAM"
+    t.integer  "ram"
     t.string   "max_screen_resolution"
     t.string   "operating_system"
     t.string   "image_url"
@@ -95,7 +94,7 @@ ActiveRecord::Schema.define(version: 20160725161529) do
     t.string   "resolution"
     t.decimal  "display_size"
     t.decimal  "price"
-    t.decimal  "weight"
+    t.string   "image_url"
     t.decimal  "average_rating"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
