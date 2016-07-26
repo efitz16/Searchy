@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree .
 //= require react
 //= require react_ujs
 //= require components
-//= require_tree .
+
+@import "bootstrap"
