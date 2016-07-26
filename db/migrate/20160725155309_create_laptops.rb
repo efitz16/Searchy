@@ -7,7 +7,7 @@ class CreateLaptops < ActiveRecord::Migration[5.0]
       t.integer :screen_size
       t.integer :ram
       t.string :max_screen_resolution
-      t.string :operating_system
+      t.string :os
       t.string :image_url
       t.decimal :average_rating
 

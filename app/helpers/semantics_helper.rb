@@ -131,10 +131,10 @@ module SemanticsHelper
         attributes["max_screen_resolution"] = ""
       end
 
-      if response["objects"][0]["specs"]["operating_system"]
-        attributes["operating_system"] = response["objects"][0]["specs"]["operating_system"]
+      if response["objects"][0]["specs"]["os"]
+        attributes["os"] = response["objects"][0]["specs"]["os"]
       else
-        attributes["operating_system"] = ""
+        attributes["os"] = ""
       end
 
       Laptop.create(attributes)
